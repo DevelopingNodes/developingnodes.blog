@@ -26,7 +26,7 @@
 ## Setup
 
 1. Install Jekyll (use the command `sudo gem install jekyll`)
-1. Fork the [Jekflix Template](https://github.com/thiagorossener/jekflix-template/fork)
+1. Fork the repo
 1. Clone the repo you just forked
 1. Edit `_config.yml` to personalize your site
 1. Check out the sample posts in `_posts` to see examples for assigning category, tags, image and other YAML data
@@ -45,7 +45,7 @@ title: Thiago Rossener | Front-end Developer
 email: youremail@xyz.com
 description: Some text about your blog.
 baseurl: "" # the subpath of your site, e.g. /blog/ or empty.
-url: "https://www.rossener.com" # the base hostname & protocol for your site
+url: # the base hostname & protocol for your site
 google_analytics: "UA-XXXXXXXX-X"
 
 # User settings
@@ -129,20 +129,6 @@ In order to compile the assets and run Jekyll on local you need to follow those 
 - Run `sudo npm install -g gulp gulp-cli`
 - Run `sudo gulp`
 
-## Questions?
-
-Ping me on Twitter [@thiagorossener](https://twitter.com/thiagorossener) or file a [GitHub Issue](https://github.com/thiagorossener/jekflix-template/issues/new).
-
-## Donation
-
-Did you like my work? Buy me a beer :)
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=YT3BC53XLMJ96&lc=GB&item_name=Thiago%20Rossener%20Nogueira&item_number=DON1212&no_note=0&cn=Adicionar%20instru%c3%a7%c3%b5es%20especiais%20para%20o%20vendedor%3a&no_shipping=2&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
-
-## Author
-
-[Thiago Rossener](https://www.rossener.com/) based on [Cards Jekyll Template](https://github.com/willianjusten/cards-jekyll-template).
-
 ## License
 
-*Jekflix Template* is available under the MIT license. See the LICENSE file for more info.
+*Template* is available under the MIT license. See the LICENSE file for more info.

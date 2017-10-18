@@ -10,8 +10,9 @@ var env       = require('minimist')(process.argv.slice(2)),
   koutoSwiss  = require('kouto-swiss'),
   prefixer    = require('autoprefixer-stylus'),
   imagemin    = require('gulp-imagemin'),
+  cleanCSS    = require('gulp-clean-css')
   spawn       = require('child_process').spawn;
-
+    
 var messages = {
   jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
@@ -58,7 +59,16 @@ gulp.task('stylus', function(){
     .pipe(browserSync.reload({stream:true}))
     .pipe(gulp.dest('assets/css'));
 });
-
+/**
+ * Minify css
+ */
+gulp.task('minify-css', () => {
+  return gulp.src('src/css/*.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('_site/assets/css/'))
+    .pipe(browserSync.reload({stream:true}))
+    .pipe(gulp.dest('assets/css/'));
+});
 /**
  * Javascript Task
  */
@@ -85,6 +95,7 @@ gulp.task('imagemin', function() {
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
+  gulp.watch('src/css/**/*.css', ['minify-css']);
   gulp.watch('src/styl/**/*.styl', ['stylus']);
   gulp.watch('src/js/**/*.js', ['js']);
   gulp.watch(['**/*.html','index.md', '_includes/*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
@@ -94,4 +105,4 @@ gulp.task('watch', function () {
  * Default task, running just `gulp` will compile the stylus,
  * compile the jekyll site, launch BrowserSync & watch files.
  */
-gulp.task('default', ['js', 'stylus', 'browser-sync', 'watch']);
+gulp.task('default', ['js', 'stylus', 'minify-css', 'browser-sync', 'watch']);
